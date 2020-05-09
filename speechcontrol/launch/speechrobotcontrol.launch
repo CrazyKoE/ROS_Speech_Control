@@ -1,0 +1,7 @@
+<launch>
+
+<node name="speech_recognizer_publish" pkg="speechcontrol" type="speech_publisher.py" output="screen"/>
+
+<node name="speech_cmd" pkg="speechcontrol" type="cmdRobot.py" output="screen"/>
+
+</launch>

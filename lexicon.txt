@@ -1,0 +1,54 @@
+:- S, NP, N, VP
+TV :: (S/NP)/VP[to]
+
+I => NP {I}
+me => NP {me}
+me => NP/N {\x.x}
+me => NP/NP {\x.x}
+
+a => NP/N {\x.x}
+am => NP/N {\x.x}
+the => NP/N {\x.x}
+that => NP/N {\x.x}
+professor => NP/NP {\x.x}
+
+mat => NP {Mat}
+mat's => NP {Mat}
+miller => NP {Miller}
+miller's => NP {Miller}
+sinapov => NP {Sinapov}
+sinapov's => NP {Sinapov}
+
+coffee => N {coffee}
+hamburger => N {hamburger}
+kitchen => N {kitchen}
+one => N {1}
+two => N {2}
+three => N {3}
+four => N {4}
+five => N {5}
+six => N {6}
+seven => N {7}
+eight => N {8}
+nine => N {9}
+ten => N {10}
+office => N {office}
+office => NP/N {\x.(office(x))}
+office => NP\NP {\x.(office(x))}
+room => N {room}
+room => NP/N {\x.(room(x))}
+room => NP\NP {\x.(room(x))}
+
+and => var\.,var/.,var {\P Q.(P & Q)}
+
+to => VP[to] {to}
+to => S/NP {\x.(action(goto) & target(x))}
+
+move => TV {\x y.(action(goto) & target(y))}
+go => TV {\x y.(action(goto) & target(y))}
+go => S/S {\x.x}
+
+get => S/NP {\x.(action(retrieve) & target(x))}
+bring => S/NP {\x.(action(retrieve) & target(x))}
+bring => (S/S)/NP {\x y.(action(goto) & target(x) & y)}
+want => (S\NP)/NP {\x y.(action(retrieve) & target(x))}
